@@ -1,121 +1,287 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AI College Chatbot</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <title>Nilgiri College AI Assistant</title>
 
-<style>
+    <!-- CSS -->
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-body{
-    background:#f5f7fb;
-}
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
+        rel="stylesheet">
 
-.chat-box{
-    width:700px;
-    margin:40px auto;
-    background:white;
-    border-radius:15px;
-    box-shadow:0px 5px 15px rgba(0,0,0,.2);
-}
-
-.header{
-    background:#0d6efd;
-    color:white;
-    padding:20px;
-    border-radius:15px 15px 0 0;
-    font-size:28px;
-    font-weight:bold;
-}
-
-.messages{
-    height:450px;
-    padding:20px;
-    overflow-y:auto;
-}
-
-.bot{
-    background:#e9ecef;
-    padding:12px;
-    border-radius:10px;
-    width:70%;
-    margin-bottom:15px;
-}
-
-.user{
-    background:#0d6efd;
-    color:white;
-    padding:12px;
-    border-radius:10px;
-    width:70%;
-    margin-left:auto;
-    margin-bottom:15px;
-}
-
-.footer{
-    display:flex;
-    padding:15px;
-}
-
-.footer input{
-    flex:1;
-    margin-right:10px;
-}
-
-</style>
-
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
 </head>
 
 <body>
 
-<div class="chat-box">
+    <!-- ================= NAVBAR ================= -->
 
-    <div class="header">
-        🎓 AI College Chatbot
-    </div>
+    <nav class="navbar">
 
-    <div class="messages">
+        <div class="logo">
+            <i class="fa-solid fa-graduation-cap"></i>
 
-        <div class="bot">
-            Hello 👋 <br>
-            I am your College Assistant.<br><br>
-
-            Ask me about:
-            <ul>
-                <li>Courses</li>
-                <li>Fees</li>
-                <li>Exam Timetable</li>
-                <li>Placements</li>
-                <li>Faculty</li>
-            </ul>
+            <div>
+                <h2>Nilgiri College</h2>
+                <span>AI Assistant</span>
+            </div>
         </div>
 
-        {% if answer %}
-        <div class="bot">
-            {{ answer }}
+        <ul>
+            <li><a href="#">Home</a></li>
+            <li><a href="#">Courses</a></li>
+            <li><a href="#">Admission</a></li>
+            <li><a href="#">Placement</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+
+    </nav>
+
+    <!-- ================= HERO SECTION ================= -->
+
+    <section class="hero">
+
+        <div class="hero-left">
+
+            <h1>
+                Welcome to
+                <span>Nilgiri College AI Assistant</span>
+            </h1>
+
+            <p>
+                Ask anything about admissions, courses, fees,
+                placements, hostel, library, scholarships,
+                examinations and more.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button class="btn">🎓 Courses</button>
+
+                <button class="btn">📝 Admission</button>
+
+                <button class="btn">💼 Placement</button>
+
+            </div>
+
         </div>
-        {% endif %}
 
-    </div>
+        <div class="hero-right">
 
-    <form method="POST" class="footer">
-        {% csrf_token %}
+            <div class="assistant-card">
 
-        <input
-            type="text"
-            name="question"
-            class="form-control"
-            placeholder="Ask your question..."
-            required>
+                <i class="fa-solid fa-robot"></i>
 
-        <button class="btn btn-primary" type="submit">
-            Send
-        </button>
-    </form>
+                <h2>AI Assistant</h2>
 
-</div>
+                <p>Available 24 × 7</p>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= FEATURES ================= -->
+
+    <section class="features">
+
+        <div class="feature">
+
+            <i class="fa-solid fa-book-open"></i>
+
+            <h3>Courses</h3>
+
+            <p>Explore UG & PG Programs</p>
+
+        </div>
+
+        <div class="feature">
+
+            <i class="fa-solid fa-building-columns"></i>
+
+            <h3>Admission</h3>
+
+            <p>Admission Guidance</p>
+
+        </div>
+
+        <div class="feature">
+
+            <i class="fa-solid fa-briefcase"></i>
+
+            <h3>Placement</h3>
+
+            <p>Career Opportunities</p>
+
+        </div>
+
+        <div class="feature">
+
+            <i class="fa-solid fa-book"></i>
+
+            <h3>Library</h3>
+
+            <p>Digital Library Resources</p>
+
+        </div>
+
+    </section>
+
+    <!-- ================= CHATBOT ================= -->
+
+    <section class="chat-section">
+
+        <div class="chat-container">
+
+            <div class="chat-header">
+
+                <i class="fa-solid fa-robot"></i>
+
+                <h2>Nilgiri College AI Assistant</h2>
+
+            </div>
+
+            <div class="chat-box" id="chatBox">
+
+                <div class="bot-message">
+
+                    <div class="icon">
+                        🤖
+                    </div>
+
+                    <div class="message">
+
+                        <h3>Welcome 👋</h3>
+
+                        <p>
+                            I'm your Nilgiri College AI Assistant.
+                        </p>
+
+                        <p>
+                            Ask me about:
+                        </p>
+                        <div class="quick-buttons">
+
+                            <button onclick="sendSuggestion('Courses')">
+                                🎓 Courses
+                            </button>
+
+                            <button onclick="sendSuggestion('Admission')">
+                                📝 Admission
+                            </button>
+
+                            <button onclick="sendSuggestion('Fees')">
+                                💰 Fees
+                            </button>
+
+                            <button onclick="sendSuggestion('Placement')">
+                                💼 Placement
+                            </button>
+
+                            <button onclick="sendSuggestion('Hostel')">
+                                🏠 Hostel
+                            </button>
+
+                            <button onclick="sendSuggestion('Library')">
+                                📚 Library
+                            </button>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+            <!-- Chat Form -->
+
+            <form method="POST" id="chatForm">
+
+                {% csrf_token %}
+
+                <div class="chat-input">
+
+                    <input type="text" id="question" name="question" placeholder="Ask your question..." required>
+
+                    <button type="submit">
+
+                        <i class="fa-solid fa-paper-plane"></i>
+
+                    </button>
+
+                </div>
+
+            </form>
+
+            <!-- Hidden Django Answer -->
+
+            <div id="django-answer" style="display:none;">
+                {{ answer }}
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- ================= ABOUT ================= -->
+
+    <section class="about">
+
+        <h2>About Nilgiri College</h2>
+
+        <p>
+
+            Nilgiri College AI Assistant helps students get quick
+            information about courses, admissions, fees, placements,
+            scholarships, hostel facilities, library services,
+            examinations and much more.
+
+        </p>
+
+    </section>
+
+    <!-- ================= FOOTER ================= -->
+
+    <footer>
+
+        <h3>Nilgiri College AI Assistant</h3>
+
+        <p>Learn • Grow • Mature • Contribute</p>
+
+        <div class="footer-icons">
+
+            <i class="fab fa-facebook"></i>
+
+            <i class="fab fa-instagram"></i>
+
+            <i class="fab fa-linkedin"></i>
+
+            <i class="fab fa-youtube"></i>
+
+        </div>
+
+        <p class="copyright">
+
+            © 2026 Nilgiri College AI Assistant.
+            Developed using Django & Python.
+
+        </p>
+
+    </footer>
+
+    <!-- JavaScript -->
+
+    <script src="{% static 'js/chatbot.js' %}"></script>
 
 </body>
+
 </html>
