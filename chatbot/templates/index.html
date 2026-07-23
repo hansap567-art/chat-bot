@@ -3,285 +3,572 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nilgiri College AI Assistant</title>
+    <title>Nilgiri Smart Campus Portal</title>
 
-    <!-- CSS -->
     <link rel="stylesheet" href="{% static 'css/style.css' %}">
 
-    <!-- Google Font -->
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+    <link rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
 </head>
 
 <body>
 
-    <!-- ================= NAVBAR ================= -->
+<!-- ================= NAVIGATION ================= -->
 
-    <nav class="navbar">
+<header class="navbar">
 
-        <div class="logo">
-            <i class="fa-solid fa-graduation-cap"></i>
+    <div class="logo">
 
-            <div>
-                <h2>Nilgiri College</h2>
-                <span>AI Assistant</span>
-            </div>
+        <i class="fas fa-graduation-cap"></i>
+
+        <div>
+
+            <h2>Nilgiri College</h2>
+
+            <p>AI Smart Campus Portal</p>
+
         </div>
 
+    </div>
+
+    <nav>
+
         <ul>
-            <li><a href="#">Home</a></li>
-            <li><a href="#">Courses</a></li>
-            <li><a href="#">Admission</a></li>
-            <li><a href="#">Placement</a></li>
-            <li><a href="#">Contact</a></li>
+
+            <li><a href="#home">Home</a></li>
+
+            <li><a href="#courses">Courses</a></li>
+
+            <li><a href="#admission">Admission</a></li>
+
+            <li><a href="#placement">Placement</a></li>
+
+            <li><a href="#library">Library</a></li>
+
+            <li><a href="#chat">AI Assistant</a></li>
+
+            <li><a href="#contact">Contact</a></li>
+
         </ul>
 
     </nav>
 
-    <!-- ================= HERO SECTION ================= -->
+</header>
 
-    <section class="hero">
+<!-- ================= HERO SECTION ================= -->
 
-        <div class="hero-left">
+<section class="hero" id="home">
 
-            <h1>
-                Welcome to
-                <span>Nilgiri College AI Assistant</span>
-            </h1>
+    <div class="hero-content">
 
-            <p>
-                Ask anything about admissions, courses, fees,
-                placements, hostel, library, scholarships,
-                examinations and more.
-            </p>
+        <span class="tagline">
+            <i class="fas fa-robot"></i>
+            Welcome to Nilgiri College
+        </span>
 
-            <div class="hero-buttons">
-
-                <button class="btn">🎓 Courses</button>
-
-                <button class="btn">📝 Admission</button>
-
-                <button class="btn">💼 Placement</button>
-
-            </div>
-
-        </div>
-
-        <div class="hero-right">
-
-            <div class="assistant-card">
-
-                <i class="fa-solid fa-robot"></i>
-
-                <h2>AI Assistant</h2>
-
-                <p>Available 24 × 7</p>
-
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ================= FEATURES ================= -->
-
-    <section class="features">
-
-        <div class="feature">
-
-            <i class="fa-solid fa-book-open"></i>
-
-            <h3>Courses</h3>
-
-            <p>Explore UG & PG Programs</p>
-
-        </div>
-
-        <div class="feature">
-
-            <i class="fa-solid fa-building-columns"></i>
-
-            <h3>Admission</h3>
-
-            <p>Admission Guidance</p>
-
-        </div>
-
-        <div class="feature">
-
-            <i class="fa-solid fa-briefcase"></i>
-
-            <h3>Placement</h3>
-
-            <p>Career Opportunities</p>
-
-        </div>
-
-        <div class="feature">
-
-            <i class="fa-solid fa-book"></i>
-
-            <h3>Library</h3>
-
-            <p>Digital Library Resources</p>
-
-        </div>
-
-    </section>
-
-    <!-- ================= CHATBOT ================= -->
-
-    <section class="chat-section">
-
-        <div class="chat-container">
-
-            <div class="chat-header">
-
-                <i class="fa-solid fa-robot"></i>
-
-                <h2>Nilgiri College AI Assistant</h2>
-
-            </div>
-
-            <div class="chat-box" id="chatBox">
-
-                <div class="bot-message">
-
-                    <div class="icon">
-                        🤖
-                    </div>
-
-                    <div class="message">
-
-                        <h3>Welcome 👋</h3>
-
-                        <p>
-                            I'm your Nilgiri College AI Assistant.
-                        </p>
-
-                        <p>
-                            Ask me about:
-                        </p>
-                        <div class="quick-buttons">
-
-                            <button onclick="sendSuggestion('Courses')">
-                                🎓 Courses
-                            </button>
-
-                            <button onclick="sendSuggestion('Admission')">
-                                📝 Admission
-                            </button>
-
-                            <button onclick="sendSuggestion('Fees')">
-                                💰 Fees
-                            </button>
-
-                            <button onclick="sendSuggestion('Placement')">
-                                💼 Placement
-                            </button>
-
-                            <button onclick="sendSuggestion('Hostel')">
-                                🏠 Hostel
-                            </button>
-
-                            <button onclick="sendSuggestion('Library')">
-                                📚 Library
-                            </button>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-            <!-- Chat Form -->
-
-            <form method="POST" id="chatForm">
-
-                {% csrf_token %}
-
-                <div class="chat-input">
-
-                    <input type="text" id="question" name="question" placeholder="Ask your question..." required>
-
-                    <button type="submit">
-
-                        <i class="fa-solid fa-paper-plane"></i>
-
-                    </button>
-
-                </div>
-
-            </form>
-
-            <!-- Hidden Django Answer -->
-
-            <div id="django-answer" style="display:none;">
-                {{ answer }}
-            </div>
-
-        </div>
-
-    </section>
-
-    <!-- ================= ABOUT ================= -->
-
-    <section class="about">
-
-        <h2>About Nilgiri College</h2>
+        <h1>
+            AI Powered <span>Smart Campus Portal</span>
+        </h1>
 
         <p>
-
-            Nilgiri College AI Assistant helps students get quick
-            information about courses, admissions, fees, placements,
-            scholarships, hostel facilities, library services,
-            examinations and much more.
-
+            Explore admissions, courses, placements, digital library,
+            campus facilities and get instant answers through our
+            AI Smart Assistant.
         </p>
 
-    </section>
+        <div class="hero-buttons">
 
-    <!-- ================= FOOTER ================= -->
+            <a href="#courses" class="btn primary-btn">
+                <i class="fas fa-book-open"></i>
+                Explore Courses
+            </a>
 
-    <footer>
-
-        <h3>Nilgiri College AI Assistant</h3>
-
-        <p>Learn • Grow • Mature • Contribute</p>
-
-        <div class="footer-icons">
-
-            <i class="fab fa-facebook"></i>
-
-            <i class="fab fa-instagram"></i>
-
-            <i class="fab fa-linkedin"></i>
-
-            <i class="fab fa-youtube"></i>
+            <a href="#chat" class="btn secondary-btn">
+                <i class="fas fa-comments"></i>
+                Ask AI Assistant
+            </a>
 
         </div>
 
-        <p class="copyright">
+    </div>
 
-            © 2026 Nilgiri College AI Assistant.
-            Developed using Django & Python.
+    <div class="hero-image">
 
-        </p>
+        <div class="ai-card">
 
-    </footer>
+            <i class="fas fa-robot robot-icon"></i>
 
-    <!-- JavaScript -->
+            <h3>AI Smart Assistant</h3>
 
-    <script src="{% static 'js/chatbot.js' %}"></script>
+            <p>
+                Ask about admissions, placements,
+                scholarships, fees, library,
+                departments and much more.
+            </p>
+
+            <div class="status">
+
+                <span class="online-dot"></span>
+
+                Online 24×7
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= STATISTICS ================= -->
+
+<section class="statistics">
+
+    <div class="stat-box">
+
+        <i class="fas fa-user-graduate"></i>
+
+        <h2>5000+</h2>
+
+        <p>Students</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <i class="fas fa-chalkboard-teacher"></i>
+
+        <h2>250+</h2>
+
+        <p>Faculty Members</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <i class="fas fa-book-open"></i>
+
+        <h2>40+</h2>
+
+        <p>Courses</p>
+
+    </div>
+
+    <div class="stat-box">
+
+        <i class="fas fa-briefcase"></i>
+
+        <h2>95%</h2>
+
+        <p>Placement Assistance</p>
+
+    </div>
+
+</section>
+<!-- ================= COURSES ================= -->
+
+<section id="courses" class="courses">
+
+    <div class="section-title">
+
+        <h2>Our Courses</h2>
+
+        <p>Choose from a wide range of undergraduate and postgraduate programmes.</p>
+
+    </div>
+
+    <div class="course-container">
+
+        <div class="course-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>BSc Computer Science</h3>
+            <p>Learn programming, AI, cloud computing, databases, networking and software development.</p>
+            <button onclick="sendSuggestion('Tell me about BSc Computer Science')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-robot"></i>
+            <h3>BCA AI & Robotics</h3>
+            <p>Artificial Intelligence, Machine Learning, Robotics and intelligent application development.</p>
+            <button onclick="sendSuggestion('Tell me about BCA AI & Robotics')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-shield-alt"></i>
+            <h3>Cyber Security</h3>
+            <p>Ethical hacking, digital forensics, penetration testing and network security.</p>
+            <button onclick="sendSuggestion('Tell me about Cyber Security')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-film"></i>
+            <h3>Multimedia</h3>
+            <p>Graphic design, video editing, animation, UI/UX design and digital content creation.</p>
+            <button onclick="sendSuggestion('Tell me about Multimedia')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-chart-line"></i>
+            <h3>BCom Computer Applications</h3>
+            <p>Business management, accounting, finance and computer applications.</p>
+            <button onclick="sendSuggestion('Tell me about BCom Computer Applications')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-briefcase"></i>
+            <h3>BBA</h3>
+            <p>Marketing, finance, entrepreneurship and modern business administration.</p>
+            <button onclick="sendSuggestion('Tell me about BBA')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-flask"></i>
+            <h3>MSc Computer Science</h3>
+            <p>Advanced software engineering, AI, data science and research opportunities.</p>
+            <button onclick="sendSuggestion('Tell me about MSc Computer Science')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-book-reader"></i>
+            <h3>MA English</h3>
+            <p>Literature, linguistics, communication skills and academic research.</p>
+            <button onclick="sendSuggestion('Tell me about MA English')">
+                Learn More
+            </button>
+        </div>
+
+        <div class="course-card">
+            <i class="fas fa-coins"></i>
+            <h3>MCom</h3>
+            <p>Advanced commerce, taxation, accounting, finance and business analytics.</p>
+            <button onclick="sendSuggestion('Tell me about MCom')">
+                Learn More
+            </button>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= ADMISSION ================= -->
+
+<section id="admission" class="admission">
+
+    <div class="section-title">
+        <h2>Admission</h2>
+        <p>Start your journey with Nilgiri College in just a few simple steps.</p>
+    </div>
+
+    <div class="admission-container">
+
+        <div class="admission-card">
+            <i class="fas fa-user-check"></i>
+            <h3>Eligibility</h3>
+            <p>Students who have successfully completed the required qualifying examination can apply for admission.</p>
+        </div>
+
+        <div class="admission-card">
+            <i class="fas fa-file-alt"></i>
+            <h3>Required Documents</h3>
+            <ul>
+                <li>SSLC Certificate</li>
+                <li>Plus Two Certificate</li>
+                <li>Aadhar Card</li>
+                <li>Passport Size Photos</li>
+                <li>Transfer Certificate</li>
+            </ul>
+        </div>
+
+        <div class="admission-card">
+            <i class="fas fa-list-check"></i>
+            <h3>Admission Process</h3>
+            <ol>
+                <li>Register Online</li>
+                <li>Upload Documents</li>
+                <li>Verification</li>
+                <li>Fee Payment</li>
+                <li>Admission Confirmation</li>
+            </ol>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= PLACEMENT ================= -->
+
+<section id="placement" class="placement">
+
+    <div class="section-title">
+        <h2>Placement Cell</h2>
+        <p>Building successful careers with top recruiters.</p>
+    </div>
+
+    <div class="placement-stats">
+
+        <div class="placement-card">
+            <h2>95%</h2>
+            <p>Placement Assistance</p>
+        </div>
+
+        <div class="placement-card">
+            <h2>100+</h2>
+            <p>Recruiting Companies</p>
+        </div>
+
+        <div class="placement-card">
+            <h2>500+</h2>
+            <p>Students Placed</p>
+        </div>
+
+    </div>
+
+    <div class="company-list">
+
+        <span>Infosys</span>
+        <span>TCS</span>
+        <span>IBM</span>
+        <span>Accenture</span>
+        <span>Cognizant</span>
+        <span>Wipro</span>
+
+    </div>
+
+</section>
+
+<!-- ================= LIBRARY ================= -->
+
+<section id="library" class="library">
+
+    <div class="section-title">
+        <h2>Digital Library</h2>
+        <p>Access thousands of learning resources anytime.</p>
+    </div>
+
+    <div class="library-container">
+
+        <div class="library-card">
+            <i class="fas fa-book"></i>
+            <h3>Books</h3>
+            <p>Over 25,000 books covering every department.</p>
+        </div>
+
+        <div class="library-card">
+            <i class="fas fa-laptop"></i>
+            <h3>E-Library</h3>
+            <p>Access digital books, journals and research papers online.</p>
+        </div>
+
+        <div class="library-card">
+            <i class="fas fa-clock"></i>
+            <h3>Library Hours</h3>
+            <p>Monday to Saturday<br>9:00 AM – 5:00 PM</p>
+        </div>
+
+        <div class="library-card">
+            <i class="fas fa-wifi"></i>
+            <h3>Digital Resources</h3>
+            <p>Free Wi-Fi, online databases and academic portals.</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= NEWS & EVENTS ================= -->
+
+<section class="news">
+
+    <div class="section-title">
+        <h2>Latest News & Events</h2>
+        <p>Stay updated with the latest happenings on campus.</p>
+    </div>
+
+    <div class="news-container">
+
+        <div class="news-card">
+            <i class="fas fa-bullhorn"></i>
+            <h3>Admissions Open</h3>
+            <p>Admissions for the 2026–2027 academic year are now open.</p>
+        </div>
+
+        <div class="news-card">
+            <i class="fas fa-laptop-code"></i>
+            <h3>AI Workshop</h3>
+            <p>Join our hands-on Artificial Intelligence workshop this month.</p>
+        </div>
+
+        <div class="news-card">
+            <i class="fas fa-trophy"></i>
+            <h3>Placement Drive</h3>
+            <p>Leading companies are visiting campus for recruitment.</p>
+        </div>
+
+    </div>
+
+</section>
+<!-- ================= AI ASSISTANT ================= -->
+
+<section id="chat" class="chat-section">
+
+    <div class="section-title">
+        <h2>AI Smart Assistant</h2>
+        <p>Ask questions about courses, admissions, placements, scholarships, library and more.</p>
+    </div>
+
+    <div class="chat-container">
+
+        <div class="quick-buttons">
+
+            <button onclick="sendSuggestion('Courses')">Courses</button>
+
+            <button onclick="sendSuggestion('Admission')">Admission</button>
+
+            <button onclick="sendSuggestion('Placement')">Placement</button>
+
+            <button onclick="sendSuggestion('Library')">Library</button>
+
+            <button onclick="sendSuggestion('Scholarship')">Scholarship</button>
+
+            <button onclick="sendSuggestion('Contact')">Contact</button>
+
+        </div>
+
+        <form method="POST" id="chatForm">
+
+            {% csrf_token %}
+
+            <input
+                type="text"
+                name="question"
+                id="questionInput"
+                placeholder="Ask your question..."
+                required
+            >
+
+            <button type="submit">
+                <i class="fas fa-paper-plane"></i>
+                Ask AI
+            </button>
+
+        </form>
+
+        {% if question %}
+
+        <div class="chat-box user">
+
+            <strong>You:</strong>
+
+            {{ question }}
+
+        </div>
+
+        {% endif %}
+
+        {% if answer %}
+
+        <div class="chat-box bot">
+
+            <strong>AI Assistant:</strong>
+
+            {{ answer }}
+
+        </div>
+
+        {% endif %}
+
+    </div>
+
+</section>
+
+<!-- ================= CONTACT ================= -->
+
+<section id="contact" class="contact">
+
+    <div class="section-title">
+        <h2>Contact Us</h2>
+        <p>We're here to help you with your academic journey.</p>
+    </div>
+
+    <div class="contact-container">
+
+        <div class="contact-card">
+            <i class="fas fa-map-marker-alt"></i>
+            <h3>Address</h3>
+            <p>Nilgiri College Campus,<br>Nilgiris, Tamil Nadu</p>
+        </div>
+
+        <div class="contact-card">
+            <i class="fas fa-phone"></i>
+            <h3>Phone</h3>
+            <p>+91 98765 43210</p>
+        </div>
+
+        <div class="contact-card">
+            <i class="fas fa-envelope"></i>
+            <h3>Email</h3>
+            <p>info@nilgiricollege.edu</p>
+        </div>
+
+        <div class="contact-card">
+            <i class="fas fa-clock"></i>
+            <h3>Office Hours</h3>
+            <p>Monday – Saturday<br>9:00 AM – 5:00 PM</p>
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+    <h2>Nilgiri Smart Campus Portal</h2>
+
+    <p>
+        Empowering students through innovation, technology and quality education.
+    </p>
+
+    <div class="social-icons">
+
+        <a href="#"><i class="fab fa-facebook-f"></i></a>
+
+        <a href="#"><i class="fab fa-instagram"></i></a>
+
+        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+
+        <a href="#"><i class="fab fa-youtube"></i></a>
+
+    </div>
+
+    <p class="copyright">
+        © 2026 Nilgiri College. All Rights Reserved.
+    </p>
+
+</footer>
+
+<script src="{% static 'js/chatbot.js' %}"></script>
 
 </body>
-
 </html>
