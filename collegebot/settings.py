@@ -130,4 +130,8 @@ USE_TZ = True
 STATIC_URL = 'static/'
 from pathlib import Path
 
+STATICFILES_DIRS = [
+    BASE_DIR / "chatbot" / "static",
+]
+
 STATIC_ROOT = BASE_DIR / "staticfiles"
