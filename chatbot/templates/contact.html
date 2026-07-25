@@ -1,0 +1,126 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Contact Us | Nilgiri AI Smart Campus Portal{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="about-hero">
+    <div class="container text-center">
+        <h1>Contact Us</h1>
+        <p>We're here to help you with admissions, academics and campus information.</p>
+    </div>
+</section>
+
+<!-- Contact -->
+<section class="py-5">
+<div class="container">
+
+<div class="row">
+
+<div class="col-lg-6">
+
+<h2>Get In Touch</h2>
+
+<form>
+
+<div class="mb-3">
+<input type="text" class="form-control" placeholder="Your Name">
+</div>
+
+<div class="mb-3">
+<input type="email" class="form-control" placeholder="Email">
+</div>
+
+<div class="mb-3">
+<input type="text" class="form-control" placeholder="Subject">
+</div>
+
+<div class="mb-3">
+<textarea rows="6" class="form-control" placeholder="Your Message"></textarea>
+</div>
+
+<button class="btn btn-primary">
+Send Message
+</button>
+
+</form>
+
+</div>
+
+<div class="col-lg-6">
+
+<div class="course-card">
+
+<h3>College Information</h3>
+
+<hr>
+
+<p><i class="fas fa-map-marker-alt text-danger"></i>
+Thaloor, The Nilgiris, Tamil Nadu</p>
+
+<p><i class="fas fa-phone text-primary"></i>
++91 XXXXX XXXXX</p>
+
+<p><i class="fas fa-envelope text-success"></i>
+info@nilgiricollege.ac.in</p>
+
+<p><i class="fas fa-globe text-warning"></i>
+www.nilgiricollege.ac.in</p>
+
+</div>
+
+<div class="course-card mt-4">
+
+<h4>Office Hours</h4>
+
+<ul class="list-group">
+
+<li class="list-group-item">
+Monday - Friday : 9 AM - 5 PM
+</li>
+
+<li class="list-group-item">
+Saturday : 9 AM - 1 PM
+</li>
+
+<li class="list-group-item">
+Sunday : Closed
+</li>
+
+</ul>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AI Help -->
+
+<section class="cta-section">
+
+<div class="container text-center">
+
+<h2 class="text-white">
+Need Instant Help?
+</h2>
+
+<p class="text-white">
+Talk with our AI Assistant 24×7.
+</p>
+
+<a href="/assistant/" class="btn btn-warning btn-lg">
+Ask AI
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

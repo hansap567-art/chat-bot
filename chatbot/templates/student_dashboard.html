@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Student Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+<div class="container">
+
+<div class="row">
+
+<!-- Sidebar -->
+<div class="col-lg-3">
+
+<div class="card shadow">
+
+<div class="card-body text-center">
+
+<img src="{% static 'images/student.png' %}" width="120" class="rounded-circle mb-3">
+
+<h4>John Doe</h4>
+
+<p>B.Sc Computer Science</p>
+
+<hr>
+
+<div class="list-group">
+
+<a href="#" class="list-group-item list-group-item-action active">
+🏠 Dashboard
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+👤 Profile
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📚 My Courses
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📅 Attendance
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📝 Assignments
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📖 Library
+</a>
+
+<a href="/assistant/" class="list-group-item list-group-item-action">
+🤖 AI Assistant
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Dashboard -->
+
+<div class="col-lg-9">
+
+<div class="row">
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h1 class="text-primary">92%</h1>
+
+Attendance
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h1 class="text-success">8</h1>
+
+Courses
+
+</div>
+
+</div>
+
+</div>
+
+<div class="col-md-4">
+
+<div class="card text-center shadow">
+
+<div class="card-body">
+
+<h1 class="text-warning">5</h1>
+
+Assignments
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Announcements -->
+
+<div class="card shadow mt-4">
+
+<div class="card-header bg-primary text-white">
+
+Latest Announcements
+
+</div>
+
+<div class="card-body">
+
+<ul>
+
+<li>Semester Exam begins next month.</li>
+
+<li>Hackathon registration is open.</li>
+
+<li>Library books due this Friday.</li>
+
+</ul>
+
+</div>
+
+</div>
+
+<!-- AI -->
+
+<div class="card shadow mt-4">
+
+<div class="card-header bg-success text-white">
+
+🤖 AI Assistant
+
+</div>
+
+<div class="card-body">
+
+<p>
+
+Need help with courses, attendance or placement?
+
+</p>
+
+<a href="/assistant/" class="btn btn-success">
+
+Open AI Assistant
+
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

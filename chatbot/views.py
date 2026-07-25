@@ -1,83 +1,91 @@
+import json
+
 from django.shortcuts import render
+from django.http import JsonResponse
+from django.views.decorators.csrf import csrf_exempt
+
+from .ai import ask_ai
+
+
+# -----------------------------
+# Website Pages
+# -----------------------------
 
 def home(request):
+    return render(request, "home.html")
 
-    answer = ""
-    question = ""
+
+def about(request):
+    return render(request, "about.html")
+
+
+def courses(request):
+    return render(request, "courses.html")
+
+
+def admission(request):
+    return render(request, "admission.html")
+
+
+def placement(request):
+    return render(request, "placement.html")
+
+
+def library(request):
+    return render(request, "library.html")
+
+
+def news(request):
+    return render(request, "news.html")
+
+
+def contact(request):
+    return render(request, "contact.html")
+
+
+# -----------------------------
+# AI Assistant
+# -----------------------------
+
+def assistant(request):
+    return render(request, "assistant.html")
+
+
+@csrf_exempt
+def chatbot(request):
 
     if request.method == "POST":
 
-        question = request.POST.get("question", "").lower()
+        try:
 
-        if "course" in question or "bsc" in question or "bca" in question:
-            answer = (
-                "Nilgiri College offers BSc Computer Science, "
-                "BCA AI & Robotics, Cyber Security, Multimedia, "
-                "BCom Computer Applications, BBA, MSc Computer Science, "
-                "MA English and MCom."
-            )
+            body = json.loads(request.body)
 
-        elif "admission" in question:
-            answer = (
-                "Admissions are open. Students can apply online by "
-                "submitting the application form and required documents."
-            )
+            question = body.get("message", "")
 
-        elif "document" in question:
-            answer = (
-                "Required documents are SSLC Certificate, Plus Two Certificate, "
-                "Aadhar Card, Passport-size Photos and Transfer Certificate."
-            )
+            answer = ask_ai(question)
 
-        elif "placement" in question:
-            answer = (
-                "Our Placement Cell provides career guidance and placement "
-                "assistance with recruiters like Infosys, TCS, IBM, "
-                "Accenture, Cognizant and Wipro."
-            )
+            return JsonResponse({
+                "answer": answer
+            })
 
-        elif "library" in question:
-            answer = (
-                "Our Digital Library has over 25,000 books, journals, "
-                "research papers and online learning resources."
-            )
+        except Exception as e:
 
-        elif "scholarship" in question:
-            answer = (
-                "Scholarships are available for eligible students based "
-                "on academic performance and government schemes."
-            )
+            return JsonResponse({
+                "answer": str(e)
+            })
 
-        elif "fee" in question:
-            answer = (
-                "Course fees vary by programme. Please contact the "
-                "admission office for the latest fee structure."
-            )
+    return JsonResponse({
+        "answer": "Only POST requests are allowed."
+    })
 
-        elif "contact" in question:
-            answer = (
-                "📞 Phone: +91 98765 43210\n"
-                "📧 Email: info@nilgiricollege.edu"
-            )
 
-        elif "hello" in question or "hi" in question:
-            answer = (
-                "Hello! 👋 Welcome to Nilgiri Smart Campus Portal. "
-                "How can I help you today?"
-            )
+# -----------------------------
+# Dashboards
+# -----------------------------
 
-        else:
-            answer = (
-                "I'm sorry, I couldn't understand your question. "
-                "Please ask about courses, admission, placements, library, "
-                "fees or scholarships."
-            )
+def student_dashboard(request):
+    return render(request, "student_dashboard.html")
 
-    return render(
-        request,
-        "index.html",
-        {
-            "question": question,
-            "answer": answer,
-        },
-    )
+
+def admin_dashboard(request):
+    return render(request, "admin_dashboard.html")

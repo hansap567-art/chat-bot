@@ -1,0 +1,184 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}News & Events | Nilgiri AI Smart Campus Portal{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="about-hero">
+    <div class="container text-center">
+        <h1>News & Events</h1>
+        <p>Stay updated with the latest campus news, announcements and upcoming events.</p>
+    </div>
+</section>
+
+<!-- Latest News -->
+<section class="py-5">
+<div class="container">
+
+<h2 class="text-center mb-5">Latest News</h2>
+
+<div class="row g-4">
+
+<div class="col-lg-4">
+<div class="course-card">
+<h4>🎓 Admissions Open</h4>
+<p>Applications are now open for UG and PG programmes.</p>
+<a href="/admission/" class="btn btn-primary btn-sm">Read More</a>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="course-card">
+<h4>💻 AI Workshop</h4>
+<p>Join our AI & Machine Learning workshop conducted by industry experts.</p>
+<a href="#" class="btn btn-primary btn-sm">Read More</a>
+</div>
+</div>
+
+<div class="col-lg-4">
+<div class="course-card">
+<h4>🏆 Sports Meet</h4>
+<p>Annual sports meet registrations have started.</p>
+<a href="#" class="btn btn-primary btn-sm">Read More</a>
+</div>
+</div>
+
+</div>
+
+</div>
+</section>
+
+<!-- Upcoming Events -->
+
+<section class="py-5 bg-light">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Upcoming Events</h2>
+
+<div class="table-responsive">
+
+<table class="table table-bordered">
+
+<thead class="table-primary">
+<tr>
+<th>Date</th>
+<th>Event</th>
+<th>Venue</th>
+</tr>
+</thead>
+
+<tbody>
+
+<tr>
+<td>15 Aug</td>
+<td>Independence Day Celebration</td>
+<td>College Auditorium</td>
+</tr>
+
+<tr>
+<td>22 Aug</td>
+<td>Hackathon 2026</td>
+<td>Computer Lab</td>
+</tr>
+
+<tr>
+<td>05 Sep</td>
+<td>Teachers' Day</td>
+<td>Main Hall</td>
+</tr>
+
+<tr>
+<td>18 Sep</td>
+<td>Placement Drive</td>
+<td>Seminar Hall</td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- Notices -->
+
+<section class="py-5">
+
+<div class="container">
+
+<h2 class="text-center mb-5">Notice Board</h2>
+
+<div class="list-group">
+
+<a href="#" class="list-group-item list-group-item-action">
+📢 Semester Examination Timetable Released
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📢 Scholarship Applications Open
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📢 NSS Camp Registration Started
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📢 Library Membership Renewal Notice
+</a>
+
+</div>
+
+</div>
+
+</section>
+
+<!-- AI News -->
+
+<section class="py-5 bg-light">
+
+<div class="container text-center">
+
+<h2>🤖 AI Campus Updates</h2>
+
+<p>
+Our AI Assistant can instantly answer questions about events,
+examinations, admissions, placements and campus activities.
+</p>
+
+<a href="/assistant/" class="btn btn-success">
+Ask AI Assistant
+</a>
+
+</div>
+
+</section>
+
+<!-- CTA -->
+
+<section class="cta-section">
+
+<div class="container text-center">
+
+<h2 class="text-white">
+Never Miss an Update
+</h2>
+
+<p class="text-white">
+Stay connected with the latest announcements and college activities.
+</p>
+
+<a href="#" class="btn btn-warning btn-lg">
+View All News
+</a>
+
+</div>
+
+</section>
+
+{% endblock %}

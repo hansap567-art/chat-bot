@@ -1,0 +1,201 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<section class="py-5 bg-light">
+<div class="container-fluid">
+
+<div class="row">
+
+<!-- Sidebar -->
+
+<div class="col-lg-2">
+
+<div class="card shadow">
+
+<div class="card-body">
+
+<h4 class="text-center mb-4">Admin Panel</h4>
+
+<div class="list-group">
+
+<a href="#" class="list-group-item list-group-item-action active">
+📊 Dashboard
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+👨‍🎓 Students
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+🎓 Admissions
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📚 Courses
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+💼 Placements
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📖 Library
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+📰 News
+</a>
+
+<a href="#" class="list-group-item list-group-item-action">
+🤖 AI Logs
+</a>
+
+<a href="#" class="list-group-item list-group-item-action text-danger">
+🚪 Logout
+</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- Main Content -->
+
+<div class="col-lg-10">
+
+<h2 class="mb-4">Dashboard Overview</h2>
+
+<div class="row g-4">
+
+<div class="col-md-3">
+<div class="card shadow text-center">
+<div class="card-body">
+<h2 class="text-primary">1250</h2>
+Students
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card shadow text-center">
+<div class="card-body">
+<h2 class="text-success">24</h2>
+Courses
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card shadow text-center">
+<div class="card-body">
+<h2 class="text-warning">310</h2>
+Admissions
+</div>
+</div>
+</div>
+
+<div class="col-md-3">
+<div class="card shadow text-center">
+<div class="card-body">
+<h2 class="text-danger">45</h2>
+Faculty
+</div>
+</div>
+</div>
+
+</div>
+
+<!-- Recent Admissions -->
+
+<div class="card shadow mt-5">
+
+<div class="card-header bg-primary text-white">
+
+Recent Admissions
+
+</div>
+
+<div class="card-body">
+
+<table class="table table-hover">
+
+<thead>
+
+<tr>
+<th>Name</th>
+<th>Course</th>
+<th>Status</th>
+</tr>
+
+</thead>
+
+<tbody>
+
+<tr>
+<td>Rahul</td>
+<td>B.Sc Computer Science</td>
+<td><span class="badge bg-success">Approved</span></td>
+</tr>
+
+<tr>
+<td>Anjali</td>
+<td>BCA AI & Robotics</td>
+<td><span class="badge bg-warning">Pending</span></td>
+</tr>
+
+<tr>
+<td>Akash</td>
+<td>B.Com</td>
+<td><span class="badge bg-info">Verified</span></td>
+</tr>
+
+</tbody>
+
+</table>
+
+</div>
+
+</div>
+
+<!-- Quick Actions -->
+
+<div class="card shadow mt-4">
+
+<div class="card-header bg-success text-white">
+
+Quick Actions
+
+</div>
+
+<div class="card-body">
+
+<a href="#" class="btn btn-primary m-2">Add Student</a>
+
+<a href="#" class="btn btn-success m-2">Add Course</a>
+
+<a href="#" class="btn btn-warning m-2">Publish News</a>
+
+<a href="#" class="btn btn-danger m-2">Manage Library</a>
+
+<a href="#" class="btn btn-info m-2">AI Analytics</a>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+{% endblock %}

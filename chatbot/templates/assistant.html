@@ -1,0 +1,259 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Nilgiri AI Assistant{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{% static 'css/assistant.css' %}">
+{% endblock %}
+
+{% block content %}
+
+<div class="assistant-container">
+
+    <!-- Sidebar -->
+    <aside class="sidebar">
+
+        <div class="logo">
+            <div class="logo-circle">🤖</div>
+            <h2>Nilgiri AI</h2>
+        </div>
+
+        <button id="newChatBtn" class="new-chat">
+            + New Chat
+        </button>
+        <div class="history-section">
+
+    <h4>Recent Chats</h4>
+
+    <div id="historyList">
+
+        <div class="history-item active">
+            💬 Welcome Chat
+        </div>
+
+        <div class="history-item">
+            📚 Courses
+        </div>
+
+        <div class="history-item">
+            📝 Admission
+        </div>
+
+        <div class="history-item">
+            💼 Placement
+        </div>
+
+    </div>
+
+</div>
+
+        <nav class="menu">
+
+            <a href="/"><i>🏠</i> Dashboard</a>
+
+            <a href="/courses/"><i>📚</i> Courses</a>
+
+            <a href="/admission/"><i>📝</i> Admission</a>
+
+            <a href="/placement/"><i>💼</i> Placement</a>
+
+            <a href="/library/"><i>📖</i> Library</a>
+
+            <a href="/news/"><i>📰</i> News</a>
+
+            <a href="#"><i>💰</i> Fees</a>
+
+            <a href="#"><i>📅</i> Timetable</a>
+
+        </nav>
+
+        <div class="profile">
+
+            <div class="avatar">👤</div>
+
+            <div>
+
+                <strong>Student</strong>
+
+                <p>🟢 Online</p>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- Main Area -->
+
+    <main class="chat-section">
+<div class="topbar">
+
+    <div>
+
+        <h1>👋 Good Morning, Student</h1>
+
+        <p id="currentDate">
+            Welcome to Nilgiri AI Smart Campus
+        </p>
+
+    </div>
+
+    <div class="top-actions">
+
+        <div class="status">
+
+            🟢 Groq AI Online
+
+        </div>
+
+        <button id="themeBtn" class="theme-btn">
+            🌙
+        </button>
+
+    </div>
+
+</div>
+
+            <div class="status">
+
+                🟢 AI Online
+
+            </div>
+
+        </div>
+
+        <!-- Welcome Card -->
+
+     <!-- Dashboard Cards -->
+
+<div class="dashboard-cards">
+
+    <div class="dashboard-card">
+
+        <h3>👨‍🎓 Students</h3>
+
+        <h1 id="studentCount">5200</h1>
+
+        <p>Active Students</p>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h3>📚 Courses</h3>
+
+        <h1>28</h1>
+
+        <p>Available Programs</p>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h3>💼 Placement</h3>
+
+        <h1>98%</h1>
+
+        <p>Placement Rate</p>
+
+    </div>
+
+    <div class="dashboard-card">
+
+        <h3>👨‍🏫 Faculty</h3>
+
+        <h1>270</h1>
+
+        <p>Teaching Staff</p>
+
+    </div>
+
+</div>
+
+        </div><!-- Quick Actions -->
+
+<div class="quick-actions">
+
+    <div class="quick-card" onclick="quickQuestion('Tell me about available courses')">
+        <div class="quick-icon">📚</div>
+        <h3>Courses</h3>
+        <p>Explore all programs</p>
+    </div>
+
+    <div class="quick-card" onclick="quickQuestion('How can I apply for admission?')">
+        <div class="quick-icon">📝</div>
+        <h3>Admission</h3>
+        <p>Application process</p>
+    </div>
+
+    <div class="quick-card" onclick="quickQuestion('Show placement details')">
+        <div class="quick-icon">💼</div>
+        <h3>Placement</h3>
+        <p>Recruiters & statistics</p>
+    </div>
+
+    <div class="quick-card" onclick="quickQuestion('Search library books')">
+        <div class="quick-icon">📖</div>
+        <h3>Library</h3>
+        <p>Find books & resources</p>
+    </div>
+
+</div>
+
+        <!-- Chat -->
+
+        <div id="chatBox" class="chat-box">
+
+            <div class="ai-message">
+
+                <div class="icon">🤖</div>
+
+                <div class="bubble">
+
+                    Hello 👋<br><br>
+
+                    Welcome to Nilgiri AI.
+
+                    How can I help you today?
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <!-- Input -->
+
+        <div class="chat-input">
+
+            <label for="pdfUpload" class="upload-btn">
+    📎
+</label>
+
+<input
+    type="file"
+    id="pdfUpload"
+    accept=".pdf"
+    hidden>
+
+            <input
+                id="messageInput"
+                type="text"
+                placeholder="Ask Nilgiri AI anything...">
+
+            <button id="micBtn">🎤</button>
+
+            <button id="sendBtn">➤</button>
+
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/assistant.js' %}"></script>
+{% endblock %}

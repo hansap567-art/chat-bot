@@ -91,3 +91,65 @@ buttons.forEach(btn => {
 // ==============================
 
 console.log("✅ Nilgiri Smart Campus Portal Loaded Successfully");
+// Floating chatbot
+
+const chatbotBtn = document.getElementById("chatbot-btn");
+const chatbotBox = document.getElementById("chatbot-box");
+const closeChat = document.getElementById("close-chat");
+const sendBtn = document.getElementById("send-btn");
+const userInput = document.getElementById("user-input");
+const chatBody = document.getElementById("chat-body");
+
+// Open Chat
+chatbotBtn.addEventListener("click", () => {
+    chatbotBox.style.display = "block";
+});
+
+// Close Chat
+closeChat.addEventListener("click", () => {
+    chatbotBox.style.display = "none";
+});
+
+// Send Message
+function sendMessage() {
+
+    const message = userInput.value.trim();
+
+    if(message==="") return;
+
+    // User Message
+    chatBody.innerHTML += `
+        <div class="user-message">
+            ${message}
+        </div>
+    `;
+
+    userInput.value="";
+
+    // Dummy AI Reply
+    setTimeout(()=>{
+
+        chatBody.innerHTML += `
+            <div class="bot-message">
+                🤖 Thanks! Your message has been received.
+                We'll connect this to the Django AI chatbot next.
+            </div>
+        `;
+
+        chatBody.scrollTop = chatBody.scrollHeight;
+
+    },600);
+
+}
+
+sendBtn.addEventListener("click",sendMessage);
+
+userInput.addEventListener("keypress",function(e){
+
+    if(e.key==="Enter"){
+
+        sendMessage();
+
+    }
+
+});

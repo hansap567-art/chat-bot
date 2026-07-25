@@ -1,0 +1,188 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block title %}Courses | Nilgiri AI Smart Campus{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero py-5 text-white" style="background:linear-gradient(135deg,#2563eb,#3b82f6);">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold">Our Courses</h1>
+        <p class="lead">
+            Industry-focused programs designed to prepare you for the future.
+        </p>
+    </div>
+</section>
+
+<!-- Search -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6">
+                <input
+                    type="text"
+                    class="form-control form-control-lg"
+                    placeholder="🔍 Search Courses">
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Undergraduate -->
+<section class="py-5">
+    <div class="container">
+
+        <h2 class="text-center mb-5">Undergraduate Programs</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-4">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-laptop-code fa-3x text-primary mb-3"></i>
+                        <h4>B.Sc Computer Science</h4>
+                        <p>Duration: 3 Years</p>
+                        <p>Eligibility: Plus Two</p>
+                        <a href="/admission/" class="btn btn-primary">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-cloud fa-3x text-info mb-3"></i>
+                        <h4>BCA AI & Cloud Computing</h4>
+                        <p>Duration: 3 Years</p>
+                        <p>Eligibility: Plus Two</p>
+                        <a href="/admission/" class="btn btn-success">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-shield-alt fa-3x text-danger mb-3"></i>
+                        <h4>B.Sc Cyber Security</h4>
+                        <p>Duration: 3 Years</p>
+                        <p>Eligibility: Plus Two</p>
+                        <a href="/admission/" class="btn btn-danger">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Postgraduate -->
+<section class="py-5 bg-light">
+    <div class="container">
+
+        <h2 class="text-center mb-5">Postgraduate Programs</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-6">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-graduation-cap fa-3x text-primary mb-3"></i>
+                        <h4>M.Sc Computer Science</h4>
+                        <p>Duration: 2 Years</p>
+                        <p>Eligibility: B.Sc Computer Science</p>
+                        <a href="/admission/" class="btn btn-primary">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6">
+                <div class="card shadow border-0 h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-brain fa-3x text-success mb-3"></i>
+                        <h4>M.Sc Artificial Intelligence</h4>
+                        <p>Duration: 2 Years</p>
+                        <p>Eligibility: Any Computer Science Degree</p>
+                        <a href="/admission/" class="btn btn-success">
+                            Apply Now
+                        </a>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- Why Choose -->
+<section class="py-5">
+    <div class="container">
+
+        <h2 class="text-center mb-5">Why Study With Us?</h2>
+
+        <div class="row g-4">
+
+            <div class="col-md-3">
+                <div class="card shadow border-0 text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-user-tie fa-3x text-primary mb-3"></i>
+                        <h5>Expert Faculty</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow border-0 text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-robot fa-3x text-success mb-3"></i>
+                        <h5>AI Learning</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow border-0 text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-briefcase fa-3x text-warning mb-3"></i>
+                        <h5>Placement Support</h5>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-3">
+                <div class="card shadow border-0 text-center h-100">
+                    <div class="card-body">
+                        <i class="fas fa-globe fa-3x text-danger mb-3"></i>
+                        <h5>Global Exposure</h5>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="py-5 text-center text-white" style="background:#2563eb;">
+    <div class="container">
+        <h2>Ready to Join Nilgiri AI Smart Campus?</h2>
+        <p>Admissions are now open.</p>
+        <a href="/admission/" class="btn btn-warning btn-lg">
+            Apply Today
+        </a>
+    </div>
+</section>
+
+{% endblock %}
